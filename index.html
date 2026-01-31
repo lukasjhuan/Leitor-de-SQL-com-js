@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leitor de SQL</title>
+    <title>Leitor SQL Separado</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Selecione o arquivo</h2>
-        <div class="upload-section">
-            <input type="file" id="input-arquivo" accept=".SQL">
-        </div>
 
-        <h3>Conteúdo Detectado:</h3>
-        <pre id="conteudo-sql">O conteúdo aparecerá aqui...</pre>
+<div class="container">
+    <div class="painel" id="painel-alunos">
+        <h3>Alunos Testes (alunos_testes.sql)</h3>
+        <p>Colunas: 2, 3, 4, 5, 6, 9</p>
+        <input type="file" id="file-alunos" accept=".sql,.txt">
+        <textarea id="out-alunos" placeholder="Aguardando arquivo..."></textarea>
     </div>
-    <script src="script.js"></script>
+
+    <div class="painel" id="painel-usuarios">
+        <h3>Usuários (usuarios.sql)</h3>
+        <p>Colunas: 1, 2, 3, 5, 8, 9, 10</p>
+        <input type="file" id="file-usuarios" accept=".sql,.txt">
+        <textarea id="out-usuarios" placeholder="Aguardando arquivo..."></textarea>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

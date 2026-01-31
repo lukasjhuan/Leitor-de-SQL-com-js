@@ -1,31 +1,69 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #ececec;
+    margin: 0;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    padding: 40px;
+    align-items: flex-start;
+    min-height: 100vh;
 }
 
 .container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow:0 4px 6px rgb(0,0,0,1);
-    max-width: 800px;
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
     width: 100%;
 }
 
-#conteudo-sql {
-    background-color: #2d2d2d;
+.painel {
+    flex: 1; 
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+
+h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+p {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 10px 0;
+}
+
+/* Estilo do Input de Arquivo */
+input[type="file"] {
+    margin-bottom: 15px;
+    padding: 8px;
+    background: #f9f9f9;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* As janelas de texto */
+textarea {
+    background-color: #2d2d2d; 
     color: #f8f8f2;
     padding: 15px;
     border-radius: 4px;
-    overflow-x: auto;
-    min-height: 100px;
     border: 1px solid #111;
-}
-
-.upload-section {
-    margin-bottom: 20px;
-    padding: 10px 0;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    resize: vertical;
+    min-height: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
 }
