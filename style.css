@@ -1,69 +1,263 @@
+/* --- RESET E GERAL --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #ececec;
-    margin: 0;
+    background-color: #f4f6f8;
+    color: #333;
+    line-height: 1.6;
     padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
 }
 
-.container {
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #2c3e50;
+}
+
+header p {
+    color: #7f8c8d;
+}
+
+/* --- LAYOUT --- */
+.main-container {
     display: flex;
     gap: 20px;
-    max-width: 1200px;
-    width: 100%;
+    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+    justify-content: center;
 }
 
-.painel {
-    flex: 1; 
-    background-color: white;
-    padding: 20px;
+.card {
+    background: white;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px; /* Largura máxima de cada painel */
     display: flex;
     flex-direction: column;
-    min-width: 300px;
+    overflow: hidden;
 }
 
-h3 {
-    margin-top: 0;
-    color: #333;
+/* --- ESTILO DO CARD --- */
+.card-header {
+    background-color: #34495e;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h2 {
     font-size: 1.2rem;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
+    font-weight: 600;
 }
 
-p {
-    font-size: 0.85rem;
-    color: #666;
-    margin: 10px 0;
+.badge {
+    background-color: rgba(255,255,255,0.2);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
 }
 
-/* Estilo do Input de Arquivo */
-input[type="file"] {
+.card-body {
+    padding: 20px;
+}
+
+/* --- INPUTS --- */
+.input-group {
     margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="file"] {
+    display: block;
+    width: 100%;
     padding: 8px;
     background: #f9f9f9;
-    border: 1px dashed #ccc;
+    border: 1px solid #ddd;
     border-radius: 4px;
     cursor: pointer;
 }
 
-/* As janelas de texto */
-textarea {
-    background-color: #2d2d2d; 
-    color: #f8f8f2;
-    padding: 15px;
+/* --- ÁREA DE SAÍDA (TABELA) --- */
+.output-area {
+    min-height: 200px;
+    max-height: 500px; /* Limite de altura */
+    overflow-y: auto;  /* Scroll vertical se for muito longo */
+    overflow-x: auto;  /* Scroll horizontal se for muito largo */
+    border: 1px solid #e1e1e1;
     border-radius: 4px;
-    border: 1px solid #111;
-    font-family: 'Consolas', 'Monaco', monospace;
-    font-size: 13px;
-    line-height: 1.5;
-    resize: vertical;
-    min-height: 400px;
+    background-color: #fff;
+}
+
+.placeholder {
+    color: #aaa;
+    text-align: center;
+    padding-top: 80px;
+    font-style: italic;
+}
+
+/* --- ESTILO DA TABELA GERADA PELO JS --- */
+table {
     width: 100%;
-    box-sizing: border-box;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+thead {
+    position: sticky; /* Mantém o cabeçalho fixo ao rolar */
+    top: 0;
+    z-index: 10;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    white-space: nowrap; /* Evita quebra de linha feia */
+}
+
+th {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    font-weight: bold;
+    border-bottom: 2px solid #bdc3c7;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e8f6f3; /* Destaque ao passar o mouse */
+}
+/* Ajuste na area de output dos uploads para não ocupar tanto espaço agora */
+.output-area.small-scroll {
+    max-height: 150px; /* Reduzi a altura pois agora o foco é a pesquisa */
+    font-size: 0.8rem;
+}
+
+/* --- NOVA SEÇÃO DE PESQUISA --- */
+.search-container {
+    background: white;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
+    border-top: 4px solid #3498db;
+}
+
+.search-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#input-busca {
+    padding: 12px;
+    font-size: 1rem;
+    width: 60%;
+    border: 2px solid #ddd;
+    border-radius: 6px;
     outline: none;
+}
+
+#input-busca:focus {
+    border-color: #3498db;
+}
+
+#btn-buscar {
+    padding: 12px 25px;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+#btn-buscar:hover {
+    background-color: #2980b9;
+}
+
+/* --- RESULTADOS DA BUSCA --- */
+.user-card-detail {
+    background-color: #fdfdfd;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Grid responsivo */
+    gap: 15px;
+}
+
+.detail-item strong {
+    display: block;
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.detail-item span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.result-title {
+    margin: 20px 0 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+    border-left: 5px solid #27ae60;
+    padding-left: 10px;
+}
+
+/* Tabela de Performance (Destaque) */
+.performance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    border: 2px solid #3498db; /* Borda azul para destacar */
+}
+
+.performance-table th {
+    background-color: #3498db; /* Cabeçalho azul forte */
+    color: white;
+    text-align: center;
+}
+
+.performance-table td {
+    text-align: center; /* Centralizar os números */
+    padding: 12px;
+    font-size: 1rem;
+}
+
+.performance-table tr:nth-child(even) {
+    background-color: #f1f8fc;
 }

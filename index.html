@@ -2,27 +2,64 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Leitor SQL Separado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Análise SQL Automático</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <div class="painel" id="painel-alunos">
-        <h3>Alunos Testes (alunos_testes.sql)</h3>
-        <p>Colunas: 2, 3, 4, 5, 6, 9</p>
-        <input type="file" id="file-alunos" accept=".sql,.txt">
-        <textarea id="out-alunos" placeholder="Aguardando arquivo..."></textarea>
+    <header>
+        <h1>Sistema de Análise de Logs</h1>
+        <p>Carregamento automático dos arquivos do servidor.</p>
+    </header>
+
+    <div class="main-container">
+        
+        <div class="card" id="painel-alunos">
+            <div class="card-header">
+                <h2>Histórico (Alunos)</h2>
+                <span class="badge">Automático</span>
+            </div>
+            <div class="card-body">
+                <div id="status-alunos" style="margin-bottom: 10px; font-weight: bold; color: orange;">
+                    Aguardando carregamento...
+                </div>
+                <div id="out-alunos" class="output-area small-scroll">
+                    <div class="placeholder">Carregando dados...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="painel-usuarios">
+            <div class="card-header">
+                <h2>Cadastros (Usuários)</h2>
+                <span class="badge">Automático</span>
+            </div>
+            <div class="card-body">
+                <div id="status-usuarios" style="margin-bottom: 10px; font-weight: bold; color: orange;">
+                    Aguardando carregamento...
+                </div>
+                <div id="out-usuarios" class="output-area small-scroll">
+                    <div class="placeholder">Carregando dados...</div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="painel" id="painel-usuarios">
-        <h3>Usuários (usuarios.sql)</h3>
-        <p>Colunas: 1, 2, 3, 5, 8, 9, 10</p>
-        <input type="file" id="file-usuarios" accept=".sql,.txt">
-        <textarea id="out-usuarios" placeholder="Aguardando arquivo..."></textarea>
-    </div>
-</div>
+    <div class="search-container">
+        <div class="search-header">
+            <h2>Pesquisa Unificada</h2>
+            <p>Os dados já estão carregados. Basta pesquisar.</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="input-busca" placeholder="Digite o login do usuário..." disabled>
+            <button id="btn-buscar" disabled>Pesquisar</button>
+        </div>
 
-<script src="script.js"></script>
+        <div id="resultado-busca"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
